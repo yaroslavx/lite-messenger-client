@@ -66,7 +66,7 @@ function Chat() {
   }, [messages]);
 
   const handleCreateRoom = () => {
-    navigate('/enterRoom');
+    navigate(`${process.env.REACT_APP_API_URL}/enterRoom`);
     socket.emit('ROOM:LEFT', roomId);
   };
 
@@ -75,7 +75,7 @@ function Chat() {
     socket.emit('ROOM:LEFT', roomId);
     socket.emit('ROOM:JOIN', { roomId: room, userName });
     const { data } = await axios.get(
-      `${process.env.REACT_APP_API_URL}/${room}`
+      `${process.env.REACT_APP_API_URL}/rooms/${room}`
     );
     console.log(data);
     data.users.push(userName);

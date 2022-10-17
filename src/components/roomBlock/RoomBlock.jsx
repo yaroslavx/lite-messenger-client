@@ -34,18 +34,20 @@ const RoomBlock = () => {
       userName,
     };
     // console.log(obj);
-    await axios.post('/rooms', obj);
+    await axios.post(`${process.env.REACT_APP_API_URL}/rooms`, obj);
     socket.emit('ROOM:JOIN', obj);
-    const { data } = await axios.get(`/rooms/${obj.roomId}`);
+    const { data } = await axios.get(
+      `${process.env.REACT_APP_API_URL}/rooms/${obj.roomId}`
+    );
     // console.log(data);
     dispatch(setUsers({ users: data.users }));
     dispatch(setMessages({ messages: data.messages }));
-    navigate(`/room/${roomId}`);
+    navigate(`${process.env.REACT_APP_API_URL}/room/${roomId}`);
   };
 
   const handleLogout = () => {
     sessionStorage.clear();
-    navigate('/');
+    navigate(`${process.env.REACT_APP_API_URL}`);
   };
 
   const stateStr = localStorage.getItem('state');
