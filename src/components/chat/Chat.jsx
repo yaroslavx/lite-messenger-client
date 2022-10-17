@@ -74,9 +74,7 @@ function Chat() {
     // await axios.post('/rooms', { room, userName });
     socket.emit('ROOM:LEFT', roomId);
     socket.emit('ROOM:JOIN', { roomId: room, userName });
-    const { data } = await axios.get(
-      `${process.env.REACT_APP_API_URL}/rooms/${room}`
-    );
+    const { data } = await axios.get(`/rooms/${room}`);
     console.log(data);
     data.users.push(userName);
     dispatch(setUsers({ users: data.users }));
