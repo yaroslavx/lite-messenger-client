@@ -34,10 +34,10 @@ const RoomBlock = () => {
       userName,
     };
     // console.log(obj);
-    await axios.post(`${process.env.REACT_APP_API_URL}/rooms`, obj);
+    await axios.post(`${process.env.REACT_APP_API_URL}rooms`, obj);
     socket.emit('ROOM:JOIN', obj);
     const { data } = await axios.get(
-      `${process.env.REACT_APP_API_URL}/rooms/${obj.roomId}`
+      `${process.env.REACT_APP_API_URL}rooms/${obj.roomId}`
     );
     // console.log(data);
     dispatch(setUsers({ users: data.users }));
