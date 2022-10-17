@@ -13,7 +13,7 @@ const NameBlock = () => {
   const handleEnter = () => {
     if (userName) {
       dispatch(setName({ name: userName }));
-      navigate(`${process.env.REACT_APP_API_URL}/enterRoom`);
+      navigate(`/enterRoom`);
     }
   };
 

@@ -66,7 +66,7 @@ function Chat() {
   }, [messages]);
 
   const handleCreateRoom = () => {
-    navigate(`${process.env.REACT_APP_API_URL}/enterRoom`);
+    navigate(`/enterRoom`);
     socket.emit('ROOM:LEFT', roomId);
   };
 

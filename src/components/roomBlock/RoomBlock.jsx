@@ -42,12 +42,12 @@ const RoomBlock = () => {
     // console.log(data);
     dispatch(setUsers({ users: data.users }));
     dispatch(setMessages({ messages: data.messages }));
-    navigate(`${process.env.REACT_APP_API_URL}/room/${roomId}`);
+    navigate(`/room/${roomId}`);
   };
 
   const handleLogout = () => {
     sessionStorage.clear();
-    navigate(`${process.env.REACT_APP_API_URL}`);
+    navigate('/');
   };
 
   const stateStr = localStorage.getItem('state');
