@@ -46,7 +46,6 @@ const App = () => {
     socket.on('ROOM:NEW_MESSAGE', (messages) =>
       dispatch(addMessages({ messages: messages }))
     );
-    console.log('rerender');
   }, []);
 
   return (
